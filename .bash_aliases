@@ -1,4 +1,5 @@
 sudo apt install ftp
+sudo apt-get install xclip
 sudo locale-gen es_PE.UTF-8
 export LC_ALL=es_PE.UTF-8
 export LANG=es_PE.UTF-8
@@ -11,7 +12,14 @@ alias push="git push origin master"
 alias master="git checkout master"
 alias lsbranch="git branch"
 
-function onmail() { route=/workspace/mailings/mailings/optical/$YEAR/$MONTH && cd $route && echo $route | CLIP; }
+function onmail() { route=/workspace/mailings/mailings/optical/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+function inmail() { route=/workspace/mailings/mailings/ingenio/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+function ulmail() { route=/workspace/mailings/mailings/ultra/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+function pomail() { route=/workspace/mailings/mailings/porto/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+function vamail() { route=/workspace/mailings/mailings/valtx/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+function obmail() { route=/workspace/mailings/mailings/obi/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+#function wimail() { route=C:/xampp/htdocs/win/public/mailing/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+function ismail() { route=/workspace/mailings/mailings/isam/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
 
 function chtml() { mjml index.mjml -o index.html && mjml index.mjml -o index.txt; }
 onftp() {
@@ -38,7 +46,7 @@ onftp() {
         mput *html *.jpg *.jpeg *.png *.pdf *.xlsx
         bye
 EOF
-                echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$FILE | clip
+                echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$FILE | xclip - i
                 MONTH=$(date +"%B" | tr A-Z a-z)
                 echo "Se realizó la transferencia con éxito"
 
@@ -64,7 +72,7 @@ EOF
         mput *html *.jpg *.jpeg *.png *.pdf *.xlsx
         bye
 EOF
-                echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$OLDFILE/$FILE | clip
+                echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$OLDFILE/$FILE | xclip - i
                 MONTH=$(date +"%B" | tr A-Z a-z)
                 echo "Se realizó la transferencia con éxito"
                 ;;
@@ -90,7 +98,7 @@ EOF
         bye
 EOF
             echo "Se realizó la transferencia con éxito"
-            echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$FILE | clip
+            echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$FILE | xclip - i
             ;;
         sd)
             $(chtml)
@@ -112,7 +120,7 @@ EOF
         bye
 EOF
             echo "Se realizó la transferencia con éxito"
-            echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$OLDFILE/$FILE | clip
+            echo https://promociones.optical.pe/mailing/$YEAR/$MONTH/$OLDFILE/$FILE | xclip - i
             ;;
         -h)
             echo -e "onftp: Agrega los archivos al servidor de promociones optical en el mes actual y en la siguiente ruta 'public_html/mailing/[current-year]/[current-month]/[dir]'\nonftp m [month]: Agrega los archivos al servidor de promociones optical en la siguiente ruta 'public_html/mailing/[current-year]/[month]/[dir]'\nonftp sd [month]: Agrega los archivos al servidor creando directorio y subdirectorio en la siguiente ruta 'public_html/mailing/[current-year]/[month]/[dir]/[subdir]'"
