@@ -1,6 +1,7 @@
 sudo apt install ftp
 sudo apt-get install xclip
 sudo locale-gen es_PE.UTF-8
+code --install-extension mjmlio.vscode-mjml-1.0.5.vsix
 export LC_ALL=es_PE.UTF-8
 export LANG=es_PE.UTF-8
 export LANGUAGE=es_PE.UTF-8
@@ -20,6 +21,8 @@ function vamail() { route=/workspace/mailings/mailings/valtx/$YEAR/$MONTH && cd 
 function obmail() { route=/workspace/mailings/mailings/obi/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
 #function wimail() { route=C:/xampp/htdocs/win/public/mailing/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
 function ismail() { route=/workspace/mailings/mailings/isam/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
+
+function create() { mkdir -p "$1" && cd "$1" && touch "index.mjml" && code -r index.mjml  && echo $(pwd -W) | clip; }
 
 function chtml() { mjml index.mjml -o index.html && mjml index.mjml -o index.txt; }
 onftp() {
