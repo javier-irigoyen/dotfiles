@@ -26,6 +26,7 @@ onftp() {
                 FILE=${PWD##*/}
                 ftp -inv $HOST <<EOF
         bin
+        passive
         user $USER $PASSWORD
         lcd $PWD
         cd public_html/mailing/$YEAR/$MONTH
@@ -49,6 +50,7 @@ EOF
                 cd $FILE
                 ftp -inv $HOST <<EOF
         bin
+        passive
         user $USER $PASSWORD
         lcd $PWD
         cd public_html/mailing/$YEAR/$MONTH
@@ -75,6 +77,7 @@ EOF
             FILE=${PWD##*/}
             ftp -inv $HOST <<EOF
         bin
+        passive
         user $USER $PASSWORD
         lcd $PWD
         cd public_html/mailing/$YEAR/$MONTH
@@ -94,6 +97,7 @@ EOF
             cd $FILE
             ftp -inv $HOST <<EOF
         bin
+        passive
         user $USER $PASSWORD
         lcd $PWD
         cd public_html/mailing/$YEAR/$MONTH
