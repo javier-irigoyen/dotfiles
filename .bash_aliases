@@ -1,5 +1,5 @@
 sudo apt install ftp
-sudo locale-gen en_PE.UTF-8
+sudo locale-gen es_PE.UTF-8
 export LC_ALL=es_PE.UTF-8
 export LANG=es_PE.UTF-8
 export LANGUAGE=es_PE.UTF-8
