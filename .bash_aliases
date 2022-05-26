@@ -11,6 +11,9 @@ alias push="git push origin master"
 alias master="git checkout master"
 alias lsbranch="git branch"
 
+function onmail() { route=/workspace/mailngs/mailings/optical/$YEAR/$MONTH && cd $route && echo $route | CLIP; }
+
+function chtml() { mjml index.mjml -o index.html && mjml index.mjml -o index.txt; }
 onftp() {
     $(r)
     HOST='promociones.optical.pe'
