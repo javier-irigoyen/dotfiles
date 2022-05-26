@@ -1,4 +1,17 @@
-# !/bin/bashrc
+#!/usr/bin/bash -i
+set -ex
+
+# install script for gitpod dotfiles support
+# https://gitpod.notion.site/Dotfiles-in-Gitpod-workspaces-b46b8723e9fe4efdbede72daa311961f
+
+date
+echo "Starting Gitpod install.sh..."
+
+if [[ -n "${GITPOD_DOTFILES_SKIP}" ]]; then
+  echo "Exiting Gitpod install.sh early..."
+  exit
+fi
+
 export LC_ALL=es_PE.UTF-8
 export LANG=es_PE.UTF-8
 export LANGUAGE=es_PE.UTF-8
