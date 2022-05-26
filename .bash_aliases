@@ -2,6 +2,7 @@ sudo apt install ftp
 sudo apt-get install xclip
 sudo locale-gen es_PE.UTF-8
 code --install-extension mjmlio.vscode-mjml-1.0.5.vsix
+export PATH="$PATH:./node_modules/mjml/bin"
 export LC_ALL=es_PE.UTF-8
 export LANG=es_PE.UTF-8
 export LANGUAGE=es_PE.UTF-8
