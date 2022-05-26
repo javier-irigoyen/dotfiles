@@ -1,5 +1,9 @@
-echo Hello Gitpod
-echo Here is my .bash_aliases dotfile
+sudo apt install ftp
+export LC_ALL=es_PE.UTF-8
+export LANG=es_PE.UTF-8
+export LANGUAGE=es_PE.UTF-8
+YEAR=$(date +%Y)
+MONTH=$(date +"%B" | tr A-Z a-z)
 
 alias pull="git pull origin master"
 alias push="git push origin master"
