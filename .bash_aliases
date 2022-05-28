@@ -1,8 +1,8 @@
-sudo apt install ftp
-sudo apt-get install xclip
+##sudo apt install ftp
+#sudo apt-get install xclip
 sudo locale-gen es_PE.UTF-8
-code --install-extension mjmlio.vscode-mjml-1.0.5.vsix
-export PATH="$PATH:./node_modules/mjml/bin"
+#code --install-extension mjmlio.vscode-mjml-1.0.5.vsix
+#export PATH="$PATH:./workspace/mailings/mailings/node_modules/mjml/bin"
 export LC_ALL=es_PE.UTF-8
 export LANG=es_PE.UTF-8
 export LANGUAGE=es_PE.UTF-8
@@ -14,6 +14,12 @@ alias push="git push origin master"
 alias master="git checkout master"
 alias lsbranch="git branch"
 
+function commit() { git add . && git commit -am "$1"; }
+function branch() { git checkout "$1"; }
+function cbranch() { git checkout -b "$1"; }
+function dbranch() { git branch -d "$1"; }
+
+function gomail() { route=/workspace/mailings && cd $route && echo $route | xclip - i; }
 function onmail() { route=/workspace/mailings/mailings/optical/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
 function inmail() { route=/workspace/mailings/mailings/ingenio/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
 function ulmail() { route=/workspace/mailings/mailings/ultra/$YEAR/$MONTH && cd $route && echo $route | xclip - i; }
@@ -135,3 +141,4 @@ EOF
         esac
     fi
 }
+/home/gitpod/.sdkman/candidates/maven/current/bin:/home/gitpod/.sdkman/candidates/java/current/bin:/home/gitpod/.sdkman/candidates/gradle/current/bin:/workspace/.cargo/bin:/home/gitpod/.rvm/gems/ruby-2.7.6/bin:/home/gitpod/.rvm/gems/ruby-2.7.6@global/bin:/home/gitpod/.rvm/rubies/ruby-2.7.6/bin:/home/gitpod/.pyenv/plugins/pyenv-virtualenv/shims:/home/gitpod/.pyenv/shims:/workspace/go/bin:/home/gitpod/.nix-profile/bin:/ide/bin/remote-cli:/home/gitpod/go/bin:/home/gitpod/go-packages/bin:/home/gitpod/.nvm/versions/node/v16.15.0/bin:/workspace/.pip-modules/bin:/home/gitpod/.pyenv/bin:/workspace/.rvm/bin:/home/gitpod/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:./node_modules/mjml/bin:/home/gitpod/.nvm/versions/node/v16.15.0/bin:/home/gitpod/.rvm/bin:/home/gitpod/.rvm/bin
