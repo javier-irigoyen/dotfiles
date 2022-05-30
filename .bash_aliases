@@ -1,3 +1,7 @@
+sudo locale-gen es_PE.UTF-8
+export LC_ALL=es_PE.UTF-8
+export LANG=es_PE.UTF-8
+export LANGUAGE=es_PE.UTF-8
 YEAR=$(date +%Y)
 MONTH=$(date +"%B" | tr A-Z a-z)
 
